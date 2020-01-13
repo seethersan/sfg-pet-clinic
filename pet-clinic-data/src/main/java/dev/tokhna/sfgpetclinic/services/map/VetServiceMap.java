@@ -2,9 +2,11 @@ package dev.tokhna.sfgpetclinic.services.map;
 
 import dev.tokhna.sfgpetclinic.model.Vet;
 import dev.tokhna.sfgpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
