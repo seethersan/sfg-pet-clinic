@@ -15,7 +15,7 @@ public class PetController {
     }
 
     @RequestMapping({"", "/", "/index", "/index.html"})
-    public String petList(Model model) {
+    public String listPets(Model model) {
         model.addAttribute("pets", petService.findAll());
         return "pets/index";
     }
