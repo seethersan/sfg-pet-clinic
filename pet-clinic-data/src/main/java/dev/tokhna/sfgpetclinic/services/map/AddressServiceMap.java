@@ -10,26 +10,26 @@ import java.util.Set;
 public class AddressServiceMap extends AbstractMapService<Address, Long> implements AddressService {
     @Override
     public Set<Address> findAll() {
-        return null;
+        return super.findAll();
     }
 
     @Override
     public Address findById(Long id) {
-        return null;
+        return super.findById(id);
     }
 
     @Override
     public Address save(Address object) {
-        return null;
+        return super.save(object);
     }
 
     @Override
     public void delete(Address object) {
-
+        super.delete(object);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        super.deleteById(id);
     }
 }
