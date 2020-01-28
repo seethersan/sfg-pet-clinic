@@ -1,5 +1,8 @@
 package dev.tokhna.sfgpetclinic.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Address extends BaseEntity {
     private String name;
     private String address;
