@@ -3,10 +3,14 @@ package dev.tokhna.sfgpetclinic.services.jpa;
 import dev.tokhna.sfgpetclinic.model.PetType;
 import dev.tokhna.sfgpetclinic.repositories.PetTypeRepository;
 import dev.tokhna.sfgpetclinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
+@Profile("jpa")
 public class PetTypeJpaService implements PetTypeService {
     private final PetTypeRepository petTypeRepository;
 
