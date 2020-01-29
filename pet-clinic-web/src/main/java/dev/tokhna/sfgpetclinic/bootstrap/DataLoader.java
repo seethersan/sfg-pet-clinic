@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,15 +18,18 @@ public class DataLoader implements CommandLineRunner {
     private final AddressService addressService;
     private final SpecialtyService specialtyService;
     private final PetService petService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      AddressService addressService, SpecialtyService specialtyService, PetService petService) {
+                      AddressService addressService, SpecialtyService specialtyService,
+                      PetService petService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.addressService = addressService;
         this.specialtyService = specialtyService;
         this.petService = petService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -94,6 +98,18 @@ public class DataLoader implements CommandLineRunner {
         petService.save(fionaPet);
 
         System.out.println("Loaded Pets");
+
+        Visit dogVisit = new Visit();
+        dogVisit.setPet(mikesPet);
+        dogVisit.setDatetime(LocalDateTime.now());
+        dogVisit.setDescription("Cute Dog");
+        visitService.save(dogVisit);
+        
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionaPet);
+        catVisit.setDatetime(LocalDateTime.now());
+        catVisit.setDescription("Sneezy Kitty");
+        visitService.save(catVisit);
 
         Specialty radiology = new Specialty();
         radiology.setDescription("radiology");
