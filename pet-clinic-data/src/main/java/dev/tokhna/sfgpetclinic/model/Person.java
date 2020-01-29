@@ -14,7 +14,7 @@ public class Person extends BaseEntity {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "address")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.REMOVE)
     private Set<Address> addresses = new HashSet<>();
 
     public String getFirstName() {

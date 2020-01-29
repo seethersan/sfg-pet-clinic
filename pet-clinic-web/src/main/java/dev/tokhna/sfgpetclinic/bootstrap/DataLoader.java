@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -54,30 +52,26 @@ public class DataLoader implements CommandLineRunner {
         address1.setAddress("123 Brickerel");
         address1.setCity("Miami");
         address1.setTelephone("1231231234");
-        Set<Address> addresses1 = new HashSet<>();
-        Address saveAddress1Address = addressService.save(address1);
-        addresses1.add(saveAddress1Address);
+        addressService.save(address1);
 
         Address address2 = new Address();
         address2.setName("Primary Address");
         address2.setAddress("456 Brickerel");
         address2.setCity("Miami");
         address2.setTelephone("2232232234");
-        Set<Address> addresses2 = new HashSet<>();
-        Address saveAddress2Address = addressService.save(address2);
-        addresses2.add(saveAddress2Address);
+        addressService.save(address2);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Watson");
-        owner1.setAddresses(addresses1);
+        owner1.getAddresses().add(address1);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
-        owner2.setAddresses(addresses2);
+        owner2.getAddresses().add(address2);
 
         ownerService.save(owner2);
 
