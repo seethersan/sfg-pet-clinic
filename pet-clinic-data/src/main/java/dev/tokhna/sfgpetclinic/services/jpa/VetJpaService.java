@@ -12,11 +12,11 @@ import java.util.Set;
 
 @Service
 @Profile("jpa")
-public class VetsJpaService implements VetService {
+public class VetJpaService implements VetService {
     private final VetRepository vetRepository;
     private final SpecialtyRepository specialtyRepository;
 
-    public VetsJpaService(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
+    public VetJpaService(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
         this.vetRepository = vetRepository;
         this.specialtyRepository = specialtyRepository;
     }
