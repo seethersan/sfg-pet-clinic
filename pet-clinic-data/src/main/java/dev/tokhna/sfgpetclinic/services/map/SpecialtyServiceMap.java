@@ -2,13 +2,11 @@ package dev.tokhna.sfgpetclinic.services.map;
 
 import dev.tokhna.sfgpetclinic.model.Specialty;
 import dev.tokhna.sfgpetclinic.services.SpecialtyService;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-@Profile("map")
 public class SpecialtyServiceMap extends AbstractMapService<Specialty, Long> implements SpecialtyService {
     @Override
     public Set<Specialty> findAll() {
